@@ -65,5 +65,12 @@ Navigate to **Settings > Devices & Services > MQTT > Devices**, and you will fin
 *   Last Meter Sync (Timestamp)
 *   Uptime (s)
 
+## Custom setup
+This repository also include a file that is custom for my setup, `main.bac`. I have an Integra RFID watermeter on the main incoming pipe and an Integra pulse watermeter on the cold water pipe. This file sends over MQTT a reading of the cold water, total water, and a computed value for the hot water (`Total` - `Cold`). Hot and cold water are reset upon booting. In Home Assistant I have configured an utility meter for each of them to track the total consumption.
+
+The pulse watermeter has two wires. One is wired to the `GND` pin of the ESP32 and the other to the `D27` GPIO pin. Which wire goes where doesn't matter.
+
+To use this custom setup instead of the main one, simply switch the extensions between the two `main` files before building and uploading.
+
 ## AI Disclosure
 *Note: AI assistance was used for troubleshooting and documentation.*
